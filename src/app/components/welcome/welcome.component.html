@@ -2,7 +2,7 @@
   <h1>Welcome to the Quiz App!</h1>
   <h4>Please select a topic of quiz you want to take:</h4>
   <div class="topic-select">
-      <div *ngFor="let category of categories" class="quiz-category">
+      <div *ngFor="let category of categories" class="quiz-category" (click)="startQuiz(category)">
         {{ category.name }}
       </div>
   </div>

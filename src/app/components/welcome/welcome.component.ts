@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
 import { QuizService } from '../quiz.service';
@@ -13,9 +14,13 @@ import { CategoryItem } from './welcome.interface';
 export class WelcomeComponent implements OnInit, OnDestroy {
 
   public categories: CategoryItem[] = [];
+  public selectedCategory: CategoryItem;
+
+  public selectedCategorySubject: Subject<string> = new Subject<string>();
   public readonly destroyGlobalSub$: Subject<void> = new Subject<void>();
 
   constructor(
+    private router: Router,
     private _quizService: QuizService,
   ) { }
 
@@ -25,8 +30,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     })
   }
 
-  public startQuiz(selectedCategory: string): void{
-    return;
+  public startQuiz(category: CategoryItem): void{
+    this.selectedCategory = category;
+    this.router.navigate(['/quiz']);
   }
 
   public ngOnDestroy(): void {

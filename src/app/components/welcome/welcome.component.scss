@@ -1,15 +1,39 @@
+.welcome-page{
+  background: linear-gradient(#5AB9EA, #C1C8E4, #8860D0);
+  h1, h4{
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px #5680E9;
+  }
+}
+
 .topic-select{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   .quiz-category{
+    background-color: #5680E9;
     border: 1px solid black;
     border-radius: 25px;
+    box-shadow: 2px 2px 2px 2px gray;
+    color: white;
     font-size: 18px;
     padding: 15px;
+    transition: all .2s ease-in-out;
     margin: 10px;
     &:hover{
       // scale/grow & increase brightness/change shadow color
+      cursor: pointer;
+      box-shadow: 4px 4px 4px 4px gray;
+      transform: scale(1.1)
     }
   }
+}
+
+.test{
+  color: #5680E9;
+  color: #84CEEB;
+  color: #5AB9EA;
+  color: #C1C8E4;
+  color: #8860D0;
 }

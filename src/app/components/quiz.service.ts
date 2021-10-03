@@ -4,6 +4,8 @@ import { CategoryItem } from "./welcome/welcome.interface";
 
 @Injectable()
 export class QuizService {
+
+
   constructor(private _httpClient: HttpClient) {}
 
   public getCategories(): any {
