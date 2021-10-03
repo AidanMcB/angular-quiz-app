@@ -1,0 +1,16 @@
+Component Structure
+
+App >
+  Quiz Component >
+    Question Component
+    Result Modal Component
+
+--
+Choose what type of quiz you want to take
+Use API to generate Questions
+Pass Each Card Component a question object
+Emit values from the radio button selection of the cards to the main
+  quiz component
+When the quiz is 'submitted', use the answer values to determine score
+Display score and Pass or Fail on the pop Up Modal
+*Change Ui for questions based on right or wrong answer

@@ -1,0 +1,15 @@
+.topic-select{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .quiz-category{
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 18px;
+    padding: 15px;
+    margin: 10px;
+    &:hover{
+      // scale/grow & increase brightness/change shadow color
+    }
+  }
+}
