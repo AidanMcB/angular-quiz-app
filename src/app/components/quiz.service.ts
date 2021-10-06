@@ -5,14 +5,14 @@ import { CategoryItem } from "./welcome/welcome.interface";
 @Injectable()
 export class QuizService {
 
-
   constructor(private _httpClient: HttpClient) {}
 
   public getCategories(): any {
     return this._httpClient.get('https://opentdb.com/api_category.php');
   }
 
-  public getQuestions(): void {
-    return;
+  public getQuestions(category?: string): any {
+    return this._httpClient.get(`https://api.trivia.willfry.co.uk/questions?categories=${category}&limit=10`);
   }
+
 }

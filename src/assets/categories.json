@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Food and Drink",
+    "paramName": "food_and_drink"
+  },
+  {
+    "name": "Geography",
+    "paramName": "geography"
+  },
+  {
+    "name": "General Knowledge",
+    "paramName": "general_knowledge"
+  },
+  {
+    "name": "History",
+    "paramName": "history"
+  },
+  {
+    "name": "Art and Literature",
+    "paramName": "art_and_literature"
+  },
+  {
+    "name": "Movies",
+    "paramName": "movies"
+  },
+  {
+    "name": "Music",
+    "paramName": "music"
+  },
+  {
+    "name": "Science",
+    "paramName": "science"
+  },
+  {
+    "name": "Society and Culture",
+    "paramName": "society_and_culture"
+  },
+  {
+    "name": "Sport and Leisure",
+    "paramName": "sport_and_leisure"
+  }
+]
+

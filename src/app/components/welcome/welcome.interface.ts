@@ -1,4 +1,4 @@
 export interface CategoryItem {
-  id: number;
+  paramName: string;
   name: string;
 }

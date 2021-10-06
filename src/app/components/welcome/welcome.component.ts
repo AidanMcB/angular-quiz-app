@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
 import { QuizService } from '../quiz.service';
 import { CategoryItem } from './welcome.interface';
+import quizCategories from '../../../assets/categories.json'
 
 @Component({
   selector: 'app-welcome',
@@ -13,26 +14,18 @@ import { CategoryItem } from './welcome.interface';
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
 
-  public categories: CategoryItem[] = [];
-  public selectedCategory: CategoryItem;
-
-  public selectedCategorySubject: Subject<string> = new Subject<string>();
+  public categories: CategoryItem[] = quizCategories;
   public readonly destroyGlobalSub$: Subject<void> = new Subject<void>();
 
   constructor(
     private router: Router,
-    private _quizService: QuizService,
   ) { }
 
   public ngOnInit(): void {
-    this._quizService.getCategories().pipe(takeUntil(this.destroyGlobalSub$)).subscribe( (categories: any) => {
-      this.categories = categories.trivia_categories;
-    })
   }
 
   public startQuiz(category: CategoryItem): void{
-    this.selectedCategory = category;
-    this.router.navigate(['/quiz']);
+    this.router.navigate(['/quiz', { category: category.paramName }]);
   }
 
   public ngOnDestroy(): void {

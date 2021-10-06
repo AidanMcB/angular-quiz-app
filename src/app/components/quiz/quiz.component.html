@@ -4,7 +4,7 @@
 
     <div class="question-grid">
         <div *ngFor="let question of quizQuestions" class="question-card">
-          <h1>Question</h1>
+          <app-question [question]="question" (selectedAnswer)="selectAnswer($event)"></app-question>
         </div>
     </div>
   </div>
