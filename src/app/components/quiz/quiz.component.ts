@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { QuizService } from '../quiz.service';
-import { QuestionItem } from './quiz.interface';
+import { QuestionItem, QuizState } from './quiz.interface';
 
 @Component({
   selector: 'app-quiz',
@@ -13,7 +14,9 @@ export class QuizComponent implements OnInit {
   public quizQuestions: any = [];
   public categoryName: string;
   public loading: boolean = false;
+  public isUnfinished: boolean = true;
 
+  public quizState$ = new BehaviorSubject<QuizState>({isSubmitted: false, score: 0, isModalHidden: true});
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _quizService: QuizService
@@ -43,8 +46,14 @@ export class QuizComponent implements OnInit {
 
   public evaulateQuiz(): void {
     //emit isAnswered from question
-    // one all questions are answered, evaluation in the question component
+    // this.quizState$.next({isSubmitted: true});
+  }
 
+  public submitQuiz(): void {
+    if(this.quizQuestions.every( (x:any )=> x.selectedAnswer?.length > 0 )){
+      const correctAnswers = this.quizQuestions.filter( (question: any) => question.isCorrect == true).length;
+      this.quizState$.next({isSubmitted: true, score: correctAnswers, isModalHidden: false});
+    }
   }
 
   private decodeHtml(html: string) {

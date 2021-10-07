@@ -5,5 +5,12 @@ export interface QuestionItem {
   question: string;
   type: string;
   allPossibleAnswers?: string[];
-  selectedAnswer: string;
+  selectedAnswer?: string;
+  isCorrect?: boolean;
+}
+
+export interface QuizState {
+  isSubmitted: boolean;
+  score: number;
+  isModalHidden: boolean;
 }

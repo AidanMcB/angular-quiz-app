@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { QuizState } from '../quiz.interface';
 
 @Component({
   selector: 'app-results-modal',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results-modal.component.scss']
 })
 export class ResultsModalComponent implements OnInit {
+
+  @Input() quizState: QuizState;
 
   constructor() { }
 

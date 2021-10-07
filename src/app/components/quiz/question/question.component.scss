@@ -1,9 +1,17 @@
 .question-card{
+  border: 1px solid black;
+  border-radius: 45px;
   height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 20px;
+  &.incorrect{
+    background-color: red;
+  }
+  &.correct{
+    background-color: green;
+  }
   span{
     margin-left: -5px;
     font-size: 18px;

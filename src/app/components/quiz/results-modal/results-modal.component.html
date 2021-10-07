@@ -1,1 +1,10 @@
-<p>results-modal works!</p>
+<ng-container *ngIf="!quizState.isModalHidden">
+  <div class="modal-container">
+    <div class="modal-contnet">
+      {{ quizState.score }} / 10
+    </div>
+  </div>
+</ng-container>
+
+
+

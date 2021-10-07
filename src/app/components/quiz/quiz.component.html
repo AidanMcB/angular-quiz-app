@@ -4,8 +4,13 @@
 
     <div class="question-grid">
         <div *ngFor="let question of quizQuestions" class="question-card">
-          <app-question [question]="question" (selectedAnswer)="selectAnswer($event)"></app-question>
+          <app-question *ngIf="quizState$ | async as quizState" [question]="question" [quizState]="quizState" (selectedAnswer)="selectAnswer($event)"></app-question>
         </div>
     </div>
   </div>
+  <button [disabled]="loading && isUnfinished" (click)="submitQuiz()">SUBMIT</button>
 </div>
+
+<app-results-modal *ngIf="quizState$ | async as quizState" [quizState]="quizState">
+
+</app-results-modal>
