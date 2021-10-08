@@ -15,4 +15,5 @@ export class QuizService {
     return this._httpClient.get(`https://api.trivia.willfry.co.uk/questions?categories=${category}&limit=2`);
   }
 
+
 }

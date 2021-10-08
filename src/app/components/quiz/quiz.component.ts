@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { QuizService } from '../quiz.service';
 import { QuestionItem, QuizState } from './quiz.interface';
+import { QuizComponentDefaultState } from './quiz.models';
 
 @Component({
   selector: 'app-quiz',
@@ -16,7 +17,8 @@ export class QuizComponent implements OnInit {
   public loading: boolean = false;
   public isUnfinished: boolean = true;
 
-  public quizState$ = new BehaviorSubject<QuizState>({isSubmitted: false, score: 0, isModalHidden: true});
+  public quizState$ = new BehaviorSubject<QuizState>(QuizComponentDefaultState);
+
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _quizService: QuizService

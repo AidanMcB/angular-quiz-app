@@ -15,4 +15,14 @@ export class ResultsModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public exit(): void {
+    console.log("close")
+  }
+
+  //make modal background cover the screen
+  //modal should cover only a protion
+  //ability to close the modal and see which ones you got wrong
+  // stretch => personalized message based on how well you did
+
+
 }

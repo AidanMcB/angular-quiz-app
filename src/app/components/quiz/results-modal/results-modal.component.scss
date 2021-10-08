@@ -1,0 +1,41 @@
+.modal-screen{
+  background-color: rgba(0,0,0,0.8);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .modal-container{
+    background-color: #C1C8E4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 225px;
+    .header-bar{
+      background-color:#5680E9;
+      display: flex;
+      justify-content: flex-end;
+      button{
+        font-weight: 600;
+      background-color: indianred;
+      border-radius: 5px;
+      margin: 5px;
+      }
+    }
+    .modal-content{
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+
+.test{
+  color: #5680E9;
+  color: #84CEEB;
+  color: #5AB9EA;
+  color: #C1C8E4;
+  color: #8860D0;
+}

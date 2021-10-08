@@ -1,7 +1,13 @@
-<ng-container *ngIf="!quizState.isModalHidden">
-  <div class="modal-container">
-    <div class="modal-contnet">
-      {{ quizState.score }} / 10
+<!-- <ng-container *ngIf="!quizState.isModalHidden"> -->
+<ng-container *ngIf="false">
+  <div class="modal-screen">
+    <div class="modal-container">
+      <div class="header-bar">
+        <button (click)="exit()">X</button>
+      </div>
+      <div class="modal-contnet">
+        {{ quizState.score }} / 10
+      </div>
     </div>
   </div>
 </ng-container>
