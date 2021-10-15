@@ -7,10 +7,10 @@
   justify-content: space-evenly;
   padding: 20px;
   &.incorrect{
-    background-color: red;
+    border: 2px solid red;
   }
   &.correct{
-    background-color: green;
+    border:2px solid green;
   }
   span{
     margin-left: -5px;

@@ -8,7 +8,7 @@
   .modal-container{
     background-color: #C1C8E4;
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
@@ -26,7 +26,14 @@
     }
     .modal-content{
       display: flex;
+      height: 80%;
+      font-size: 18px;
+      font-weight: 700;
+      align-items: center;
       justify-content: center;
+      .score{
+        // margin: auto;
+      }
     }
   }
 }
