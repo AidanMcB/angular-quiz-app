@@ -7,6 +7,7 @@
   left: 0;
   .modal-container{
     background-color: #C1C8E4;
+    border-radius: 10px;
     position: absolute;
     top: 35%;
     left: 50%;
@@ -15,24 +16,27 @@
     height: 225px;
     .header-bar{
       background-color:#5680E9;
+      border-radius: 10px 10px 0 0;
+      border-bottom: 1px solid black;
       display: flex;
       justify-content: flex-end;
       button{
         font-weight: 600;
-      background-color: indianred;
-      border-radius: 5px;
-      margin: 5px;
+        background-color: indianred;
+        border-radius: 5px;
+        margin: 5px;
       }
     }
     .modal-content{
       display: flex;
-      height: 80%;
       font-size: 18px;
       font-weight: 700;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      .score{
-        // margin: auto;
+      .percent-score{
+        font-family: serif;
+        font-size: 28px;
       }
     }
   }

@@ -1,13 +1,23 @@
 .welcome-page{
-  background: linear-gradient(#5AB9EA, #C1C8E4, #8860D0);
-  h1, h4{
-    color: white;
+  h2, h4{
+    color: black;
+    text-shadow: 1px 1px #C1C8E4;
+    font-family: sans-serif;
+  }
+  .logo-container{
     text-align: center;
-    text-shadow: 1px 1px #5680E9;
+    .angular-logo-img{
+      height: 100px;
+      width: 100px;
+    }
+  }
+  h4{
+    text-align: center;
   }
 }
 
 .topic-select{
+  font-family: serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -20,7 +30,7 @@
     font-size: 18px;
     padding: 15px;
     transition: all .2s ease-in-out;
-    margin: 10px;
+    margin: 30px;
     &:hover{
       // scale/grow & increase brightness/change shadow color
       cursor: pointer;

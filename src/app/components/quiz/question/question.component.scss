@@ -1,6 +1,8 @@
 .question-card{
+  background-color: rgb(255, 255, 255, 0.75);
   border: 1px solid black;
   border-radius: 45px;
+  font-family: serif;
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -21,10 +23,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
     .answer.correct{
-      // justify-self: center;
+      border-radius: 5px;
       background-color: green
     }
     .answer.incorrect{
+      border-radius: 5px;
       background-color: red;
     }
     li {

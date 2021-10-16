@@ -5,17 +5,21 @@
     </div>
   </div>
   <div *ngIf="!isLoading" class="quiz-page">
-    <h1 class="quiz-title">Angular Quiz App</h1>
+    <h2 class="quiz-title">{{ categoryName | titlecase}} </h2>
 
     <div class="question-grid">
         <div *ngFor="let question of quizQuestions" class="question-card">
-          <app-question [question]="question" [quizState]="quizState" (selectedAnswer)="selectAnswer($event)"></app-question>
+          <app-question [question]="question" [quizState]="quizState"></app-question>
         </div>
     </div>
   </div>
-  <button *ngIf="!isLoading" [disabled]="isLoading && isUnfinished" (click)="submitQuiz()">
-    {{ quizState.isSubmitted ? 'RETAKE' : 'SUBMIT'}}
-  </button>
+
+  <div class="submit-retake-btn">
+    <button *ngIf="!isLoading" class="submit-btn" [disabled]="isLoading && isUnfinished" (click)="submitQuiz()">
+      {{ quizState.isSubmitted ? 'Try Another Quiz' : 'SUBMIT'}}
+    </button>
+  </div>
+
 </div>
 
 <app-results-modal *ngIf="quizState$ | async as quizState" [quizState]="quizState">

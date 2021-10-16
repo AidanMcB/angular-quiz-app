@@ -1,6 +1,9 @@
 <div class="welcome-page">
-  <h1>Welcome to the Quiz App!</h1>
-  <h4>Please select a topic of quiz you want to take:</h4>
+  <h2>Angular Quiz</h2>
+  <div class="logo-container">
+    <img [src]="angularLogo" class="angular-logo-img" alt="Angular logo">
+  </div>
+  <h4>Please select a topic to test your knowledge:</h4>
   <div class="topic-select">
       <div *ngFor="let category of categories" class="quiz-category" (click)="startQuiz(category)">
         {{ category.name }}

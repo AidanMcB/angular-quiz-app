@@ -10,7 +10,6 @@ export class QuestionComponent implements OnInit {
 
   @Input() public question: QuestionItem;
   @Input() public quizState: QuizState;
-  @Output() public selectedAnswer: EventEmitter<any> = new EventEmitter();
 
   public questionStatus: string = 'question-card';
 

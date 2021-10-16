@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { QuizService } from '../quiz.service';
 import { QuestionItem, QuizState } from './quiz.interface';
@@ -12,20 +12,23 @@ import { QuizComponentDefaultState } from './quiz.models';
 })
 export class QuizComponent implements OnInit {
 
-  public quizQuestions: any = [];
   public categoryName: string;
+  public quizQuestions: any = [];
   public isLoading: boolean = false;
   public isUnfinished: boolean = true;
+  public isSubmitted: boolean = false;
 
   public quizState$ = new BehaviorSubject<QuizState>(QuizComponentDefaultState);
 
   constructor(
     private _ActivatedRoute: ActivatedRoute,
-    private _quizService: QuizService
+    private _quizService: QuizService,
+    private router: Router,
   ) { }
 
   public ngOnInit(): void {
     this.isLoading = true;
+    this.categoryName = this._ActivatedRoute.snapshot.paramMap.get('categoryName') || '';
     const category = this._ActivatedRoute.snapshot.paramMap.get('category') || '';
     this._quizService.getQuestions(category).subscribe((questionItems: QuestionItem[]) => {
       this._parsePossibleAnswers(questionItems);
@@ -42,33 +45,21 @@ export class QuizComponent implements OnInit {
     });
   }
 
-  public selectAnswer(event: any): void {
-    // console.log(event)
-  }
-
-  public evaulateQuiz(): void {
-    //emit isAnswered from question
-    // this.quizState$.next({isSubmitted: true});
-  }
-
   public submitQuiz(): void {
-    if(this.quizQuestions.every( (x:any )=> x.selectedAnswer?.length > 0 )){
-      const correctAnswers = this.quizQuestions.filter( (question: any) => question.isCorrect == true).length;
-      this.quizState$.next({isSubmitted: true, score: correctAnswers, isModalHidden: false});
+    if(!this.isSubmitted){
+      if(this.quizQuestions.every( (x:any )=> x.selectedAnswer?.length > 0 )){
+        const correctAnswers = this.quizQuestions.filter( (question: any) => question.isCorrect == true).length;
+        this.quizState$.next({isSubmitted: true, score: correctAnswers, isModalHidden: false});
+        this.isSubmitted = true;
+      }
+    } else{
+      this.resetQuiz();
     }
   }
 
-  private decodeHtml(html: string) {
-    var txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
+  private resetQuiz(): void {
+    this.quizState$.next(QuizComponentDefaultState);
+    this.router.navigate(['/',]);
   }
-
-  /*
-  public key: 446203417d5d0964fe52ba0f0761db3f
-  private key: e7b52f24a32e3a5cc99e241dafa64db8ed94ffba
-
-  */
-
 
 }
