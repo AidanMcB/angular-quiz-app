@@ -1,14 +1,21 @@
-<div class="quiz-wrapper">
-  <div class="quiz-page">
+<div class="quiz-wrapper" *ngIf="quizState$ | async as quizState">
+  <div *ngIf="isLoading" class="loading-wrapper">
+    <div class="loading-spinner">
+      Loading
+    </div>
+  </div>
+  <div *ngIf="!isLoading" class="quiz-page">
     <h1 class="quiz-title">Angular Quiz App</h1>
 
     <div class="question-grid">
         <div *ngFor="let question of quizQuestions" class="question-card">
-          <app-question *ngIf="quizState$ | async as quizState" [question]="question" [quizState]="quizState" (selectedAnswer)="selectAnswer($event)"></app-question>
+          <app-question [question]="question" [quizState]="quizState" (selectedAnswer)="selectAnswer($event)"></app-question>
         </div>
     </div>
   </div>
-  <button [disabled]="loading && isUnfinished" (click)="submitQuiz()">SUBMIT</button>
+  <button *ngIf="!isLoading" [disabled]="isLoading && isUnfinished" (click)="submitQuiz()">
+    {{ quizState.isSubmitted ? 'RETAKE' : 'SUBMIT'}}
+  </button>
 </div>
 
 <app-results-modal *ngIf="quizState$ | async as quizState" [quizState]="quizState">

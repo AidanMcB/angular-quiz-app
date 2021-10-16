@@ -1,10 +1,14 @@
 <div [class]="questionStatus">
   <span>{{question.question}}</span>
   <div class="answers">
-    <div *ngFor="let answer of question.allPossibleAnswers" class="answer">
-      <li>
-        <input type="radio" (change)="chooseAnswer(answer)" [name]="question.question" [value]="answer">
-        {{ answer }}
+    <div *ngFor="let answer of question.allPossibleAnswers; let i = index">
+      <li  [class]="updateAnswerClass(answer)">
+        <input type="radio"
+          (change)="chooseAnswer(answer)"
+          [name]="question.question"
+          [value]="answer"
+          [disabled]="quizState.isSubmitted">
+          {{ answer }}
       </li>
 
     </div>

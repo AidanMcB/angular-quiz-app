@@ -16,7 +16,8 @@ export class ResultsModalComponent implements OnInit {
   }
 
   public exit(): void {
-    console.log("close")
+    // console.log("close");
+    this.quizState.isModalHidden = true;
   }
 
   //make modal background cover the screen

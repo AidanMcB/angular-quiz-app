@@ -14,7 +14,7 @@ export class QuizComponent implements OnInit {
 
   public quizQuestions: any = [];
   public categoryName: string;
-  public loading: boolean = false;
+  public isLoading: boolean = false;
   public isUnfinished: boolean = true;
 
   public quizState$ = new BehaviorSubject<QuizState>(QuizComponentDefaultState);
@@ -25,11 +25,11 @@ export class QuizComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.loading = true;
+    this.isLoading = true;
     const category = this._ActivatedRoute.snapshot.paramMap.get('category') || '';
     this._quizService.getQuestions(category).subscribe((questionItems: QuestionItem[]) => {
       this._parsePossibleAnswers(questionItems);
-      this.loading = false;
+      this.isLoading = false;
     })
   }
 
@@ -43,7 +43,7 @@ export class QuizComponent implements OnInit {
   }
 
   public selectAnswer(event: any): void {
-    console.log(event)
+    // console.log(event)
   }
 
   public evaulateQuiz(): void {
