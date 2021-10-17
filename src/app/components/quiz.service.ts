@@ -12,7 +12,7 @@ export class QuizService {
   }
 
   public getQuestions(category?: string): any {
-    return this._httpClient.get(`https://api.trivia.willfry.co.uk/questions?categories=${category}&limit=2`);
+    return this._httpClient.get(`https://api.trivia.willfry.co.uk/questions?categories=${category}&limit=10`);
   }
 
 
