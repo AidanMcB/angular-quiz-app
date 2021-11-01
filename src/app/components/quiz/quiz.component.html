@@ -1,7 +1,7 @@
 <div class="quiz-wrapper" *ngIf="quizState$ | async as quizState">
   <div *ngIf="isLoading" class="loading-wrapper">
     <div class="loading-spinner">
-      Loading
+      <span>Loading...</span>
     </div>
   </div>
   <div *ngIf="!isLoading" class="quiz-page">

@@ -33,7 +33,7 @@ export class QuizComponent implements OnInit {
     this._quizService.getQuestions(category).subscribe((questionItems: QuestionItem[]) => {
       this._parsePossibleAnswers(questionItems);
       this.isLoading = false;
-    })
+    });
   }
 
   private _parsePossibleAnswers(questionItems: any):void {
